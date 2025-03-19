@@ -22,3 +22,38 @@ print(x)
 
 x = tf.random.uniform((2, 2), minval=0, maxval=1)
 print(x)
+
+x = tf.random.normal((3, 3), mean=0, stddev=1)
+print(tf.cast(x, dtype=tf.float64))
+# tf.float (16,32,64), tf.int (8, 16, 32, 64), tf.bool
+
+x = tf.range(9)
+x = tf.range(start=0, limit=10, delta=2)
+print(x)
+
+# Math
+x = tf.constant([1, 2, 3])
+y = tf.constant([9, 8, 7])
+
+z = tf.add(x, y)
+z = x + y
+
+z = tf.subtract(x, y)
+z = x - y
+
+z = tf.divide(x, y)
+z = x / y
+
+z = tf.multiply(x, y)
+z = x * y
+
+z = tf.tensordot(x, y, axes=1)
+
+z = x ** 5
+
+x = tf.random.normal((2, 3))
+y = tf.random.normal((3, 2))
+z = tf.matmul(x, y)
+z = x @ y
+
+x = tf.random.normal((2, 2))
