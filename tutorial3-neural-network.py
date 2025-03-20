@@ -28,6 +28,18 @@ model.add(layers.Dense(512, activation="relu"))
 model.add(layers.Dense(256, activation="relu", name="my_layer"))
 model.add(layers.Dense(10))
 
+# Functional API (A bit more flexible)
+inputs = keras.Input(shape=(784))
+x = layers.Dense(512, activation="relu", name="first_layer")(inputs)
+x = layers.Dense(256, activation="relu", name="second_layer")(x)
+outputs = layers.Dense(10, activation="softmax")(x)
+model = keras.Model(inputs=inputs, outputs=outputs)
+
+model.compile(
+    loss=keras.losses.SparseCategoricalCrossentropy(from_logits=False),
+    optimizer=keras.optimizers.Adam(lr=0.001),
+    metrics=["accuracy"],
+)
 
 
 
