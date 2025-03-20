@@ -41,7 +41,8 @@ model.compile(
     metrics=["accuracy"],
 )
 
-
+model.fit(x_train, y_train, batch_size=32, epochs=5, verbose=2)
+model.evaluate(x_test, y_test, batch_size=32, verbose=2)
 
 
 
